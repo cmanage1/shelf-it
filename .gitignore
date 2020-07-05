@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+# API Keys
+.env
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Hosting
+/.firebase

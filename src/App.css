@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+input:focus, textarea:focus {
+    outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-bar{
+    padding-top: 5rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+    width: 30rem;
+    height: 2rem;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-btn{
+    background-color: #265D84;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    display: block;
+    margin: auto;
+    border-radius: 6rem;
+    transition: all .2s;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem; 
+    font-weight: 700;
+    border: 1rem;
+    outline: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-btn:active{
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.21); 
 }
 
-.App-link {
-  color: #61dafb;
+.search-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.21); 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: #265D84;
+    color: white;
+}
+
+.nav-links{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none; 
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-links:hover{
+    color: black;
+}
+
+.nav-links:active{
+    color: white;
+}
+
+.item-card{
+    display: inline-block;
+    padding: 1vh;
+}
+
+.add-btn{
+        display: block;
+}
+
+.preview-btn{
+        display: block;
+}
+
+@media (max-width: 56.25em){
+    nav{
+        display: flex;
+    }
+
+    .search-bar{
+        width: 20rem;
+    }
+
+    .add-btn{
+        display: block;
+    }
 }

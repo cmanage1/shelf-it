@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #282c34;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    font-family: 'MuseoModerno';
+    font-size: 50px;
+    text-align: center;
+    display: block;
+    background-color: #282C34;
+}
+
+
+.glow {
+  font-size: 80px;
+  color: #000000;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow{
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #43a4bc, 0 0 30px #43a4bc, 0 0 40px #43a4bc, 0 0 50px #43a4bc, 0 0 60px #43a4bc, 0 0 70px #43a4bc;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #61DAFB, 0 0 40px #61DAFB, 0 0 50px #61DAFB, 0 0 60px #61DAFB, 0 0 70px #61DAFB, 0 0 80px #61DAFB;
+    }
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #43a4bc, 0 0 30px #43a4bc, 0 0 40px #43a4bc, 0 0 50px #43a4bc, 0 0 60px #43a4bc, 0 0 70px #43a4bc;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #61DAFB, 0 0 40px #61DAFB, 0 0 50px #61DAFB, 0 0 60px #61DAFB, 0 0 70px #61DAFB, 0 0 80px #61DAFB;
+  }
+}
+
+@media (max-width: 56.25em){
+ @keyframes glow{
+   
+ } 
+ @-webkit-keyframes  glow{
+
+ }
+
+ 
+}
