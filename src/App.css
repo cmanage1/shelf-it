@@ -1,4 +1,8 @@
-input:focus, textarea:focus {
+input:focus{
+    outline: none;
+} 
+
+textarea:focus {
     outline: none;
 }
 
@@ -83,6 +87,30 @@ nav{
         display: block;
 }
 
+.sign-in-btn{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none; 
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    visibility: visible;
+}
+.sign-in-btn:hover{
+    color: black;
+}
+
+.sign-in-btn:active{
+    color: white;
+}
+
+
+
 @media (max-width: 56.25em){
     nav{
         display: flex;
@@ -96,3 +124,4 @@ nav{
         display: block;
     }
 }
+

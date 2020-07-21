@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthorization } from './Session';
 import '.././App.css';
 
 function Shelf() {
@@ -9,4 +10,6 @@ function Shelf() {
     );
 };
 
-export default Shelf;
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Shelf);
