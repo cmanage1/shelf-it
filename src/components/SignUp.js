@@ -1,3 +1,8 @@
+/*
+Author: Chethin Manage
+Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+*/
+
 import React, { Component } from 'react';
 import '.././App.css';
 import { Link, withRouter } from 'react-router-dom';
@@ -37,17 +42,18 @@ class SignUpFormBase extends Component {
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, newPassword)
             .then(authUser => {
-                // Create a user in your Firebase realtime database
+                // Create a user in your Firestore database
                 return this.props.firebase
-                    .user(authUser.user.uid)
-                    .set({
-                        username,
-                        email,
-                    });
+                    //setting new user's info into database
+                    .db.collection('users').doc(authUser.user.uid).set({
+                        username: username,
+                        email: email,
+                        items: [],
+                    })
             })
-            .then(authUser => {
+            .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push("/"); //Direct back to homepage
+                this.props.history.push("/search");
             })
             .catch(error => {
                 this.setState({ error });
@@ -76,7 +82,8 @@ class SignUpFormBase extends Component {
             username === '';
 
         return(
-            <form onSubmit={this.onSubmit}>
+            <form 
+                onSubmit={this.onSubmit}>
                 <input 
                     name="username"
                     value={username}

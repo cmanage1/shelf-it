@@ -1,3 +1,4 @@
+/* Author: Chethin Manage */
 input:focus{
     outline: none;
 } 
@@ -109,7 +110,9 @@ nav{
     color: white;
 }
 
-
+.landing-text{
+    align-items: center;
+}
 
 @media (max-width: 56.25em){
     nav{

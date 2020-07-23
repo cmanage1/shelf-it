@@ -1,3 +1,4 @@
+/*  Author: Chethin Manage  */
 import React from 'react';
 import '.././App.css';
 import {Link } from 'react-router-dom';
@@ -23,6 +24,10 @@ const NavAuth = () => (
         <ul className="nav-links">
             <Link className="nav-links" to="/">
                 <li> Home </li>
+            </Link>
+            
+            <Link className="nav-links" to="/search">
+                <li> Search </li>
             </Link>
 
             <Link className="nav-links" to="/shelf">
@@ -51,6 +56,11 @@ const NavNonAuth = () => (
             <Link className="nav-links" to="/">
                 <li> Home </li>
             </Link>
+
+            <Link className="nav-links" to="/search">
+                <li> Search </li>
+            </Link>
+
 
             <Link className="nav-links" to="/shelf">
                 <li>My Shelf </li>

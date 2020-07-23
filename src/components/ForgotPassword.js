@@ -1,3 +1,7 @@
+/*
+Author: Chethin Manage
+Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 

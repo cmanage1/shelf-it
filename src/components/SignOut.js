@@ -1,3 +1,8 @@
+/*
+Author: Chethin Manage
+Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+*/
+
 import React from 'react';
 import '.././App.css';
 

@@ -1,9 +1,12 @@
+/* Author: Chethin Manage */
 import React from 'react';
 import './App.css';
 
 //page imports
 import Nav from './components/Nav';
-import Home from './components/Home';
+import Search from './components/Search';
+import Landing from './components/Landing';
+
 import Shelf from './components/Shelf';
 import About from './components/About';
 import SignIn from './components/SignIn';
@@ -26,7 +29,10 @@ const App = () => (
             <Nav />
 
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact component={Landing} />
+
+              <Route path="/search" component={Search} />
+
               <Route path="/about" component={About} />
               <Route path="/shelf" component={Shelf} />
               <Route path="/signin" component={SignIn} />

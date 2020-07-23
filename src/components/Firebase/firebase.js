@@ -1,6 +1,11 @@
+/*
+Author: Chethin Manage
+Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+*/
+
 import app from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/database';
+import 'firebase/firestore';
 
 const config = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -16,9 +21,8 @@ class Firebase {
         app.initializeApp(config);
 
         this.auth = app.auth();
-        this.db = app.database();
+        this.db = app.firestore();
     }
-
     /* Using Firebase Authentication API */
 
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -33,13 +37,6 @@ class Firebase {
 
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
-
-    // *** User API ***
-
-    user = uid => this.db.ref(`users/${uid}`);
-
-    users = () => this.db.ref('users');
-
 }
 
 export default Firebase;

@@ -1,3 +1,8 @@
+/*  
+Author: Chethin Manage  
+Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+*/
+
 import React, { Component } from 'react';
 import '.././App.css';
 import { withRouter } from 'react-router-dom';
@@ -36,7 +41,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push( "/");
+                this.props.history.push( "/search");
             })
             .catch(error => {
                 this.setState({ error });
