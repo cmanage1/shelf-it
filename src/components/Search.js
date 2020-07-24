@@ -60,7 +60,9 @@ class Search extends Component {
 
                         docRef.update({
                             items: newArr,
-                        })  
+                        })
+                        
+                        alert("Success!");
                     }
                     else{
                         console.log("DOC NOT FOUND")
