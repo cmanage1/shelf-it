@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { withAuthorization } from './Session';
 import '.././App.css';
 
-
+/*  The page where the user can see the books in their "shelf"
+*/
 class Shelf extends Component {
 
     constructor(props){
@@ -16,6 +17,8 @@ class Shelf extends Component {
         this.getFromDatabase = this.getFromDatabase.bind(this);
     }
 
+    /* Called instantly with "Shelf" Component mounts to load the items from the database
+    Uses Firebase Firestore API */
     getFromDatabase () {
         var currentUser = this.props.firebase.auth.currentUser;
         const docRef = this.props.firebase.db.collection('users').doc(currentUser.uid)
@@ -28,14 +31,19 @@ class Shelf extends Component {
                 console.log("DOC NOT FOUND")
             }
         })
-
-
     }
+
+    /* Called once with "Shelf" Component mounts ]
+    It then calls getFromDatabase(). This method does noothing but call another 
+    */
     componentDidMount() {
         this.getFromDatabase();
     }
 
-
+    /* Called once the user clicks "Remove from Shelf" button in the UI. 
+    Uses the firebase firestore API to access the database and then
+    remove the parameter "item" from the array
+    */
     removeFromShelf (item) {
         var currentUser = this.props.firebase.auth.currentUser;
         
@@ -43,15 +51,13 @@ class Shelf extends Component {
 
         docRef.get().then( function (doc) {
             if (doc.exists) {
+
                 var existingArray = [];
                 existingArray = doc.data().items;
-                console.log(item.id);
-                console.log("Array at first\n" + existingArray)
 
                 const newArr = existingArray.filter(function(element) {
                     return element.id !== item.id
                 })
-                console.log("Array after filter\n" + newArr)
 
                 if (newArr.length === 0){
                     docRef.update({
@@ -73,10 +79,6 @@ class Shelf extends Component {
                         console.error(" Error: " + error);
                     })
                 }
-
-                console.log("Whats in the db\n" + doc.data().items )
-
-                
             }
             else {
                 console.log("DOC NOT FOUND")
@@ -120,15 +122,14 @@ class Shelf extends Component {
                             className="add-btn">
                             Remove from library
                         </button>
-
                     </div>
-
                 ))};
             </div>
         );
     }
 };
 
+//This condition is appied to the given class in order to prevent an UNAUTHENTICATED user to access this page
+//See  more about "withAuthorization" in 'Session/withAuthorization.js"
 const condition = authUser => !!authUser;
-
 export default withAuthorization(condition)(Shelf);

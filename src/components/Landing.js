@@ -2,6 +2,9 @@
 import React from 'react';
 import '.././App.css';
 
+/* What user sees when they click on the main url ( default route "/").
+Contains hyperlinks to the issues page on github as well as the Firebase Privacy page
+*/
 function Landing() {
     return (
         <div className="emphasis-text">
@@ -13,10 +16,10 @@ function Landing() {
             <h4> Give us feedback on <a href="https://github.com/cmanage1/shelf-it/issues" target="__blank">Github</a></h4>
             
              <br></br>
-           
-            
         </div>
     );
 };
 
+/*This page does not need "witAuthorization" unlike all the other files
+because the landing page is accessed by anyone */
 export default Landing;

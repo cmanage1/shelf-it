@@ -20,6 +20,9 @@ const INITIAL_STATE = {
     error: null,
 };
 
+/*  This component where the user can sign in for the app
+It uses Firebase Authentication API to let a user change passwords
+*/
 class PasswordChangeForm extends Component {
     constructor(props) {
         super(props);
@@ -27,9 +30,10 @@ class PasswordChangeForm extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
+    //Handle the event when a user submits the form defined below
+    //Uses firebase to "doPasswordUpdate" defined in 'Firebase/firebase/js'.
     onSubmit = event => {
         const { passwordOne } = this.state;
-
         this.props.firebase
             .doPasswordUpdate(passwordOne)
             .then(() => {
@@ -42,10 +46,14 @@ class PasswordChangeForm extends Component {
         event.preventDefault();
     };
 
+    /* This function handles the changes input boxes and sets a React State for them
+    React States: https://reactjs.org/docs/faq-state.html
+    */
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    // React method for writing to UI
     render() {
         const { passwordOne, passwordTwo, error } = this.state;
 
@@ -74,14 +82,14 @@ class PasswordChangeForm extends Component {
                     className="sign-in-btn"
                     disabled={isInvalid} type="submit">
                     Reset My Password
-        </button>
-
+                </button>
                 {error && <p className="error" >{error.message}</p>}
             </form>
         );
     }
 }
 
+//A link is defined to be used for later in another page
 const PasswordChangeLink = () => (
     <p className="emphasis-text-bottom">
         Want to change your password? 
@@ -89,5 +97,8 @@ const PasswordChangeLink = () => (
     </p>
 );
 
+//Export with firebase so that there doesnt need to be any more imports where its being used
 export default withFirebase(ChangePasswordPage);
+
+//Made possible here to just export PasswordChangeForm and PasswordChangeLink
 export { PasswordChangeForm, PasswordChangeLink };

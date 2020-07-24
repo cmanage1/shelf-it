@@ -6,6 +6,12 @@ import SignOutButton from './SignOut';
 
 import { AuthUserContext } from './Session';
 
+/*  The file handles the Navigation.
+const nav is used to decide with component to mount.
+Using ternary operations, the function decides whether to mount 
+the Nav Bar for a Signed In user <NavAuth /> 
+ or the Nav bar from a Signed Out user<NavNonAuth />.
+*/
 const Nav = () => (
     <div>
         <AuthUserContext.Consumer>
@@ -18,8 +24,10 @@ const Nav = () => (
 
 //What displays when the user has SIGNED IN
 const NavAuth = () => (
-    //Here I'm setting the react-router-dom Link property
-    //to send user to specific route upon a click
+    /* Here the react-router-dom Link property is set to
+    send user to specific route upon a click. 
+    These routes are handled and declared in '../App.js' instead of a Router file.
+    */
     <nav >
         <ul className="nav-links">
             <Link className="nav-links" to="/">

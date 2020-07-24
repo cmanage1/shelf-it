@@ -2,6 +2,10 @@
 import React from 'react';
 import '.././App.css';
 
+
+/* What user sees when they click About
+Contains hyperlinks to the github repo as well as the Firebase Privacy page
+*/
 function About() {
     return (
         <div className="emphasis-text">

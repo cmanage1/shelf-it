@@ -5,11 +5,16 @@ Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tu
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
 
+/* Features from this page are used constantly within the application
+It uses firebase authentication API to keep track of users.
+The methods are defined in this file instead of the respective js file is because
+of organization. More code in '/Session' , less code in original components
+*/
 const withAuthorization = condition => Component => {
+
     class WithAuthorization extends React.Component {
         componentDidMount() {
             this.listener = this.props.firebase.auth.onAuthStateChanged(
@@ -22,6 +27,7 @@ const withAuthorization = condition => Component => {
             );
         }
 
+        //Handle authentication state changes
         componentWillUnmount() {
             this.listener();
         }
@@ -37,6 +43,7 @@ const withAuthorization = condition => Component => {
         }
     }
 
+    
     return compose(
         withRouter,
         withFirebase,

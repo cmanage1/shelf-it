@@ -12,6 +12,7 @@ import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './ForgotPassword';
 import { withFirebase } from './Firebase';
 
+//Mounting links for Password Forget Component and SignUp Components
 const SignInPage = () => (
     <div>
         <h1 className="sign-headings" >SignIn</h1>
@@ -21,12 +22,16 @@ const SignInPage = () => (
     </div>
 );
 
+//Setting the initial variables for the values inside the form
 const INITIAL_STATE = {
     email: '',
     password: '',
     error: null,
 };
 
+/*  This component where the user can sign in for the app
+It uses Firebase Authentication API to log in users
+*/
 class SignInFormBase extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +39,9 @@ class SignInFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
+    /* This function handles what happens when the user submits the form
+    It logs them in using Firebase Auth and redirects to the "Search" page
+    */
     onSubmit = event => {
         const { email, password } = this.state;
 
@@ -46,18 +54,20 @@ class SignInFormBase extends Component {
             .catch(error => {
                 this.setState({ error });
             });
-
-        event.preventDefault();
+        event.preventDefault(); //Prevent the page from reloadng
     };
 
+    /* This function handles the changes input boxes and sets a React State for them
+    React States: https://reactjs.org/docs/faq-state.html
+    */
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    // React method for writing to UI
     render() {
         const { email, password, error } = this.state;
-
-        const isInvalid = password === '' || email === '';
+        const isInvalid = password === '' || email === ''; //To disable loginFunctions when form is empty
 
         return (
             <form onSubmit={this.onSubmit} className="sign-in-form">
@@ -86,12 +96,13 @@ class SignInFormBase extends Component {
         );
     }
 }
-
+/*This is here to be able to mount the component without redirecting the user to a route
+I plan to use this in the account page in a Future Iteration */
 const SignInForm = compose(
     withRouter,
     withFirebase,
 )(SignInFormBase);
 
-export default SignInPage;
 
+export default SignInPage;
 export { SignInForm };

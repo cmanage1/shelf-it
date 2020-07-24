@@ -2,7 +2,6 @@
 import React,  {Component} from 'react';
 import axios from 'axios';
 import '.././App.css';
-
 import { withAuthorization } from './Session';
 
 const INITIAL_STATE = {
@@ -13,6 +12,8 @@ const INITIAL_STATE = {
     error: '',
 }
 
+/*  The page where the user can search for any book
+*/
 class Search extends Component {
 
     constructor(props){
@@ -26,7 +27,9 @@ class Search extends Component {
         this.setState({ book: e.target.value });
     }
 
-    //Called when the form is submitted by the user i.e. user hits "SUBMIT"
+    /*Called when the form is submitted by the user i.e. user hits "SUBMIT"
+    Uses Google Books API
+    */
     handleFormSubmit = (e) => {
         const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_KEY;
 
@@ -34,7 +37,7 @@ class Search extends Component {
 
         //I used axios because fetch() did not work 
         axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.book + "&key=" + apiKey + "&maxResults=20")
-            .then(data => { //status 200 expected with array of items
+            .then(data => { 
                 if (data !== undefined) {
                     this.setState({ result: data.data.items }) //set data  into result array
                 }
@@ -42,7 +45,9 @@ class Search extends Component {
             .catch(error => console.log(error))  //error handling
     }
 
-
+    /*Called when user pressed "Add to shelf "
+    Uses firebase firestore api
+    */
     sendToShelf (item) { 
         if (item !== '' ) {
             var currentUser = this.props.firebase.auth.currentUser;
@@ -72,15 +77,11 @@ class Search extends Component {
             }else{
                 console.log( "No user is logged in")
             }
-            
-        //     // this.docRef.update({
-        //     //     items: this.props.firebase.db.FieldValue.arrayUnion(...this.state.selectedItem)
-        //     // })
          };
     }
 
-    //Here I'm rendering the home page
-    //map method is used in order to access the array of results
+    // React method for writing to UI
+    //map method is used in order to access the array of results and iterate
     render() {
         const{
             result,
@@ -143,5 +144,7 @@ class Search extends Component {
     }
 };
 
+//This condition is appied to the given class in order to prevent an UNAUTHENTICATED user to access this page
+//See  more about "withAuthorization" in 'Session/withAuthorization.js"
 const condition = authUser => !!authUser;
 export default withAuthorization(condition)(Search);
