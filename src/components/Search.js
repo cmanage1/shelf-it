@@ -43,16 +43,14 @@ class Search extends Component {
     }
 
 
-    sendToShelf (item) {
-        //event.preventDefault();
-        
+    sendToShelf (item) { 
         if (item !== '' ) {
             var currentUser = this.props.firebase.auth.currentUser;
 
             if (currentUser != null){
                 const docRef = this.props.firebase.db.collection('users').doc(currentUser.uid)
-                docRef.get().then( function (doc){
                 
+                docRef.get().then( function (doc){
                     if (doc.exists) {
                         var existingArray = []
                         existingArray = doc.data().items ;
@@ -60,13 +58,16 @@ class Search extends Component {
 
                         docRef.update({
                             items: newArr,
-                        })
+                        }).then( function() {
+                            alert("Success!");
+                        }).catch( function(error) {
+                            console.error("Error Writing documents: " + error);
+                        })   
                         
-                        alert("Success!");
                     }
                     else{
                         console.log("DOC NOT FOUND")
-                    }
+                        }
                 })
             }else{
                 console.log( "No user is logged in")

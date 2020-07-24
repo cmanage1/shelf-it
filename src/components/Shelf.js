@@ -31,12 +31,6 @@ class Shelf extends Component {
 
 
     }
-
-    componentWillMount() {
-        this.setState({
-            itemList: [],
-        })
-    }
     componentDidMount() {
         this.getFromDatabase();
     }
@@ -44,35 +38,51 @@ class Shelf extends Component {
 
     removeFromShelf (item) {
         var currentUser = this.props.firebase.auth.currentUser;
+        
         const docRef = this.props.firebase.db.collection('users').doc(currentUser.uid)
 
-        docRef.get().then((doc) => {
+        docRef.get().then( function (doc) {
             if (doc.exists) {
-                var existingArray = doc.data().items;
-                
-                var count = 0;
+                var existingArray = [];
+                existingArray = doc.data().items;
+                console.log(item.id);
+                console.log("Array at first\n" + existingArray)
 
-                existingArray.forEach( element => {
-                    count= count+1;
+                const newArr = existingArray.filter(function(element) {
+                    return element.id !== item.id
+                })
+                console.log("Array after filter\n" + newArr)
 
-                    if (element.id === item.id) {
-                        existingArray.splice( element )
-                        docRef.update({
-                            items: existingArray
-                        })
-                    }
+                if (newArr.length === 0){
+                    docRef.update({
+                        items: [],
+                    }).then(function () {
+                        alert("Success!")
+                        window.location.reload(false);
+                    }).catch(function (error) {
+                        console.error(" Error: " + error);
+                    })
+                    
+                }else{
+                    docRef.update({
+                        items: newArr  
+                    }).then( function() {
+                        alert("Success!")
+                        window.location.reload(false);
+                    }).catch( function(error) {
+                        console.error(" Error: " + error);
+                    })
                 }
-                )
-                const newArr = existingArray.concat(item);
 
-                docRef.update({
-                    items: newArr,
-                })  
+                console.log("Whats in the db\n" + doc.data().items )
+
+                
             }
             else {
                 console.log("DOC NOT FOUND")
             }
         })
+
     }
 
     render(){
@@ -84,7 +94,7 @@ class Shelf extends Component {
             <div>
                 {itemList.map(book => ( //iterate 
                     <div className="item-card"
-                        key={book.volumeInfo.previewLink.toString()}
+                        key={book.volumeInfo.previewLink.toString() }
                         >
                         <img src={
                             //ternary operator
