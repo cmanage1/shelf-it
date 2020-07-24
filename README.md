@@ -20,13 +20,13 @@ I have written some code in '/public/index.html' & '/public/style.css' as well.
 
 ## New Features
 
-I am planning on adding a function to add notes about a certain book (as seen in [issue]( https://github.com/cmanage1/shelf-it/issues/3 ) <br />
+I am planning on adding a function to add notes about a certain book (as seen in [issue]( https://github.com/cmanage1/shelf-it/issues/3 ) )<br />
 If you would like to add anything add them as a .js file in the '/src' directory. And reference that file into App.js and Nav.js. <br />
 And if you have ideas for more features please open an Issue with the "enhancement" tag
 
 ## Available Scripts
 
-Please make sure you have Node.js installed. Instructions are found [here] (https://www.npmjs.com/get-npm)
+Please make sure you have Node.js installed. Instructions are found [here](https://www.npmjs.com/get-npm)<br/>
 In the project directory, first run:
 
 ### `npm install`
