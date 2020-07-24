@@ -26,11 +26,16 @@ And if you have ideas for more features please open an Issue with the "enhanceme
 
 ## Available Scripts
 
-In the project directory, you can run:
+Please make sure you have Node.js installed. Instructions are found [here] (https://www.npmjs.com/get-npm)
+In the project directory, first run:
+
+### `npm install`
+
+This will install the dependancies you need in order to start the development server.
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Start the development server.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run build`
