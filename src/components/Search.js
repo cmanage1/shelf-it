@@ -54,7 +54,6 @@ class Search extends Component {
                 docRef.get().then( function (doc){
                 
                     if (doc.exists) {
-                        
                         var existingArray = []
                         existingArray = doc.data().items ;
                         const newArr = existingArray.concat(item);

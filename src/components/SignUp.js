@@ -16,7 +16,7 @@ Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tu
 
 const SignUp = () => (
     <div>
-        <h1> SignUp</h1>
+        <h1 className="sign-headings"> SignUp</h1>
         <SignUpForm />
     </div>
 );
@@ -58,7 +58,6 @@ class SignUpFormBase extends Component {
             .catch(error => {
                 this.setState({ error });
             });
-
         e.preventDefault();
     };
 
@@ -82,9 +81,10 @@ class SignUpFormBase extends Component {
             username === '';
 
         return(
-            <form 
+            <form className="sign-in-form"
                 onSubmit={this.onSubmit}>
                 <input 
+                    className="input-text"
                     name="username"
                     value={username}
                     onChange={this.onChange}
@@ -92,6 +92,7 @@ class SignUpFormBase extends Component {
                     placeholder="Username"
                 />
                 <input
+                    className="input-text"
                     name="email"
                     value={email}
                     onChange={this.onChange}
@@ -99,6 +100,7 @@ class SignUpFormBase extends Component {
                     placeholder="Email Address"
                 />
                 <input
+                    className="input-text"
                     name="newPassword"
                     value={newPassword}
                     onChange={this.onChange}
@@ -106,23 +108,31 @@ class SignUpFormBase extends Component {
                     placeholder="New Password"
                 />
                 <input
+                    className="input-text"
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Confirm Password"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button 
+                    className="sign-in-btn"
+                    disabled={isInvalid} type="submit">
                     Sign Up
                 </button>
-                {error && <p>{error.message}</p>}
+                {error && <p className="error" >{error.message}</p>}
+                <h6 
+                className="emphasis-text-bottom"> 
+                Google's Firebase authetication API is used to log users, you can read about their Privacy & Policy
+                <a href="https://firebase.google.com/support/privacy" target="__blank"> here </a></h6>
             </form>
+            
         );
     }
 }
 
 const SignUpLink = () => (
-    <p>
+    <p className="emphasis-text-bottom">
         Never been here before? <Link to="/signup">Sign Up Now!</Link>
     </p>
 );

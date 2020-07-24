@@ -8,7 +8,7 @@ import { withFirebase } from './Firebase';
 
 const ChangePasswordPage = () => (
     <div>
-        <h1>Change Passowrd </h1>
+        <h1 className="sign-headings">Change Passowrd </h1>
         <PasswordChangeForm />
     </div>
 );
@@ -53,8 +53,9 @@ class PasswordChangeForm extends Component {
             passwordOne !== passwordTwo || passwordOne === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="sign-in-form">
                 <input
+                    className="input-text"
                     name="passwordOne"
                     value={passwordOne}
                     onChange={this.onChange}
@@ -62,25 +63,29 @@ class PasswordChangeForm extends Component {
                     placeholder="New Password"
                 />
                 <input
+                    className="input-text"
                     name="passwordTwo"
                     value={passwordTwo}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Confirm New Password"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button 
+                    className="sign-in-btn"
+                    disabled={isInvalid} type="submit">
                     Reset My Password
         </button>
 
-                {error && <p>{error.message}</p>}
+                {error && <p className="error" >{error.message}</p>}
             </form>
         );
     }
 }
 
 const PasswordChangeLink = () => (
-    <p>
-        <Link to={"/change_password"}> Want to change your password? </Link>
+    <p className="emphasis-text-bottom">
+        Want to change your password? 
+        <Link to={"/change_password"}> Click Here</Link>
     </p>
 );
 

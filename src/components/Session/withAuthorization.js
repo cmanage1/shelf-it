@@ -2,7 +2,6 @@
 Author: Chethin Manage
 Credit to: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
 */
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
@@ -15,6 +14,7 @@ const withAuthorization = condition => Component => {
         componentDidMount() {
             this.listener = this.props.firebase.auth.onAuthStateChanged(
                 authUser => {
+                    //send to sign in page when trying to access unauthorized page
                     if (!condition(authUser)) {
                         this.props.history.push("/signin");
                     }

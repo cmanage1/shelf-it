@@ -7,6 +7,15 @@ textarea:focus {
     outline: none;
 }
 
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+body{
+    padding: 2.5rem;
+}
+
 .search-bar{
     padding-top: 5rem;
     margin-top: 1rem;
@@ -15,13 +24,11 @@ textarea:focus {
     display: block; 
     width: 30rem;
     height: 2rem;
-    border-radius: 25px;
-    border: 2px solid #73AD21;
     padding: 20px;
 }
 
 .search-btn{
-    background-color: #265D84;
+    background-color: #66FCF1;
     text-transform: uppercase;
     padding: 0.7rem 1.5rem;
     display: block;
@@ -29,11 +36,12 @@ textarea:focus {
     border-radius: 6rem;
     transition: all .2s;
     text-decoration: none;
-    color: white;
+    color: #0b0c10;
     font-size: 1rem; 
     font-weight: 700;
     border: 1rem;
     outline: 0;
+    cursor: pointer;
 }
 
 .search-btn:active{
@@ -49,8 +57,6 @@ textarea:focus {
 nav{
     display: flex;
     justify-content: space-around;
-    background-color: #265D84;
-    color: white;
 }
 
 .nav-links{
@@ -60,19 +66,20 @@ nav{
     align-items: center;
     list-style: none; 
     float: left;
-    color: #f2f2f2;
+    color: #46A29F;
+    font-weight: 800;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
 }
 
 .nav-links:hover{
-    color: black;
+    color: #c5c6c7;
 }
 
 .nav-links:active{
-    color: white;
+    color: #45A29E;
 }
 
 .item-card{
@@ -81,50 +88,119 @@ nav{
 }
 
 .add-btn{
-        display: block;
+    display: block;
+    padding: 0.4rem;
+    margin: 0.5rem;
+    cursor:pointer;
 }
 
 .preview-btn{
-        display: block;
+    display: block;
+    padding: 0.4rem;
+    margin: 0.5rem;
+    cursor:pointer;
 }
 
 .sign-in-btn{
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
+    background-color: #66FCF1;
     align-items: center;
-    list-style: none; 
-    float: left;
-    color: #f2f2f2;
+    margin-top: 1rem;
+    padding: 0.4rem;
+    font-size: 18px;
+    color: #0b0c10;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    visibility: visible;
+    font-weight: 700;
+    cursor: pointer;
 }
+
 .sign-in-btn:hover{
-    color: black;
+    color: white;
 }
 
 .sign-in-btn:active{
+    color: #0b0c10;
+}
+
+.sign-in-btn:disabled{
+    background-color: #66FCF1;
     color: white;
+    cursor: default;
 }
 
 .landing-text{
     align-items: center;
 }
 
+.emphasis-text{
+    font-family: Roboto;
+    text-align: center;
+    color: #c5c6c7;
+}
+
+.emphasis-text h1{
+    font-size: 25px;
+    padding: 1.2rem;
+    font-weight: 400;
+}
+
+.emphasis-text h6{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.sign-headings{
+    font-family: Roboto;
+    text-align: center;
+    color: #c5c6c7;
+    font-size: 25px;
+    padding: 1.2rem;
+    font-weight: 400;
+}
+
+.sign-in-form{
+    text-align: center;
+}
+
+.input-text{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    display: block;
+    height:30px;
+    font-size:14pt;
+    padding: 0.5rem;
+}
+
+.emphasis-text-bottom{
+    font-family: Roboto;
+    text-align: center;
+    color: #c5c6c7;
+    font-size: 18px;
+    padding: 1.2rem;
+    font-weight: 400;
+}
+
+.sign-out-btn{
+    align-items: center;
+    text-align: center;
+    color: #45A29E;
+    font-weight: 900;
+    padding: 0.4rem;
+    width: 8rem;
+    font-size: 18px;
+    border: 2px solid #45A29E; /* Green */
+    background-color: transparent;
+    cursor:pointer;
+}   
+
+.error{
+    font-size: 14px;
+    color: red;
+    padding-top: 1rem;
+}
+
 @media (max-width: 56.25em){
     nav{
         display: flex;
     }
-
-    .search-bar{
-        width: 20rem;
-    }
-
-    .add-btn{
-        display: block;
-    }
 }
-

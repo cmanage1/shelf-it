@@ -9,7 +9,7 @@ import { withFirebase } from './Firebase';
 
 const PasswordForgetPage = () => (
     <div>
-        <h1>PasswordForget</h1>
+        <h1 className="sign-headings">Forgot your password?</h1>
         <PasswordForgetForm />
     </div>
 );
@@ -51,27 +51,35 @@ class PasswordForgetFormBase extends Component {
         const isInvalid = email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="sign-in-form">
                 <input
+                    className="input-text"
                     name="email"
                     value={this.state.email}
                     onChange={this.onChange}
                     type="text"
                     placeholder="Email Address"
                 />
-                <button disabled={isInvalid} type="submit">
-                    Reset My Password
+                <button 
+                    className="sign-in-btn"
+                    disabled={isInvalid} 
+                    type="submit">
+                    Send Me a Link
         </button>
 
-                {error && <p>{error.message}</p>}
+                {error && <p className="error" >{error.message}</p>}
             </form>
         );
     }
 }
 
 const PasswordForgetLink = () => (
-    <p>
-        <Link to={"/forgot_password"}>Forgot Password?</Link>
+    <p className="emphasis-text-bottom">
+        <Link 
+            
+            to={"/forgot_password"} >
+                Forgot Password?
+        </Link>
     </p>
 );
 

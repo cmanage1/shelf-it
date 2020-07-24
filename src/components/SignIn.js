@@ -14,7 +14,7 @@ import { withFirebase } from './Firebase';
 
 const SignInPage = () => (
     <div>
-        <h1>SignIn</h1>
+        <h1 className="sign-headings" >SignIn</h1>
         <SignInForm />
         <PasswordForgetLink />
         <SignUpLink />
@@ -60,8 +60,9 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="sign-in-form">
                 <input
+                    className="input-text"
                     name="email"
                     value={email}
                     onChange={this.onChange}
@@ -69,17 +70,18 @@ class SignInFormBase extends Component {
                     placeholder="Email Address"
                 />
                 <input
+                    className="input-text"
                     name="password"
                     value={password}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Password"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button className="sign-in-btn" disabled={isInvalid} type="submit">
                     Sign In
         </button>
 
-                {error && <p>{error.message}</p>}
+                {error && <p className="error" >{error.message}</p>}
             </form>
         );
     }
