@@ -11,16 +11,18 @@ Frameworks & Environments used:
 * Firebase for hosting it [live]( https://shelf-it.web.app/ )
 
 API's used:
-* Google Books API to fetch book searches
-* Firebase Authentication to log users and manage states
-* Firebase FireStore to store data
+* Google Books API
+* Firebase Authentication
+* Firebase FireStore 
 
 Most of the code in '/src' is written by me, there are some snippets of code that's not completely my work but they are credited to the Original Author in the respective JavaScript file (eg: '/src/SignUp.js'). <br />
-I have written some code in '/public/index.html' & '/public/style.css' as well.
+I have written some code in '/public/index.html' & '/public/style.css' as well. <br/>
+
+To see the architecture more in depth click [here]( https://github.com/cmanage1/shelf-it/wiki/Home/ )
 
 ## New Features
 
-I am planning on adding a function to add notes about a certain book (as seen in [issue]( https://github.com/cmanage1/shelf-it/issues/3 ) )<br />
+I am planning on adding a function to add notes about a certain book (as seen in [issue]( https://github.com/cmanage1/shelf-it/issues/2 ) )<br />
 If you would like to add anything add them as a .js file in the '/src' directory. And reference that file into App.js and Nav.js. <br />
 And if you have ideas for more features please open an Issue with the "enhancement" tag
 
