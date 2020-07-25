@@ -31,21 +31,21 @@ And if you have ideas for more features please open an Issue with the "enhanceme
 Please make sure you have Node.js installed. Instructions are found [here](https://www.npmjs.com/get-npm)<br/>
 In the project directory, first run:
 
-### `npm install`
+`npm install`
 
 This will install the dependancies you need in order to start the development server.
 
-### `npm start`
+`npm start`
 
 Start the development server.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+`npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `npm run eject`
+`npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
