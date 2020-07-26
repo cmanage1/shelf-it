@@ -1,0 +1,46 @@
+class ShelfIt
+{
+  status
+  {
+
+    SignedOut 
+    {
+      doSignIn -> SignedIn;
+      doSignUp -> SignedIn;
+    }
+
+    SignedIn
+    {
+      doSignOut -> SignedOut;
+      navigateToSearchPage -> SearchPage;
+      navigateToShelfPage -> ShelfPage;
+    }
+
+    SearchPage
+    {
+      addToShelf -> DatabaseAdd;
+      preview -> openLinkInNewTab;
+      navigateToShelfPage -> ShelfPage;
+      doSignOut-> SignedOut;
+    }
+
+    ShelfPage
+    {
+      removeFromShelf -> DatabaseRemove;
+      preview -> openLinkInNewTab;
+      doSignOut -> SignedOut;
+    }
+
+    DatabaseRemove
+    {
+      removefromDatabase -> ShelfPage;
+    }
+
+    DatabaseAdd
+    {
+      addToDatabase -> SearchPage;
+    }
+
+    openLinkInNewTab { }
+  }
+}
