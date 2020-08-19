@@ -2,6 +2,9 @@
 Web app that lets you keep track of owned books<br />
 You can find test cases [here](https://github.com/cmanage1/shelf-it/wiki/Test-cases) as well as diagrams
 
+## Demo
+[User Searches a book and adds to library] (../blob/master/__tests__/case_6.gif)
+
 ## Architecture 
 Shelf-it uses the MVC architecture
 
