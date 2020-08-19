@@ -1,4 +1,4 @@
-# Shelf-it 
+# Shelf-it 📚
 Web app that lets you keep track of owned books<br />
 You can find test cases [here](https://github.com/cmanage1/shelf-it/wiki/Test-cases) as well as diagrams
 
